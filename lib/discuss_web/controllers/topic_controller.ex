@@ -38,7 +38,7 @@ defmodule DiscussWeb.TopicController do
 
   def update(conn, %{"id" => topic_id, "topic" => topic}) do
     old_topic = Repo.get(Topic, topic_id)
-    changeset = Topic.changeset(old_topic)
+    changeset = Topic.changeset(old_topic, topic)
 
     case Repo.update(changeset) do
       {:ok, _topic} ->
